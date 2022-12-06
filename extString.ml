@@ -16,3 +16,6 @@ let ntake n s =
  
 let hd s =
   String.get s 0
+
+let split_on_char_greedy ch =
+  String.split_on_char ch %> List.filter (String.is_empty %> Bool.not)
