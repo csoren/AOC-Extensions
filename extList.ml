@@ -8,6 +8,8 @@ let to_string conv list =
   
 let string_list_to_string = to_string (fun s -> "\"" ^ s ^ "\"")
 
+let string_list_list_to_string = to_string string_list_to_string
+
 let int_list_to_string = to_string string_of_int
 
 let int_list_list_to_string = to_string int_list_to_string
@@ -26,8 +28,9 @@ let group_when ~first:sep l =
     else
       (el :: List.hd acc) :: List.tl acc
   in
-  List.fold_left add_when [[]] l
+  List.fold_left add_when [] l
   |> List.map List.rev
+  |> List.rev
 
 let split_match p list =
   List.fold_while (fun _ el -> not @@ p el) (fun acc el -> el :: acc) [] list
