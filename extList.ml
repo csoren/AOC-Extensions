@@ -19,6 +19,16 @@ let bool_list_list_to_string = to_string bool_list_to_string
 let group_at ~separator:sep l =
   List.nsplit sep l |> List.filter (not % List.is_empty)
 
+let group_when ~first:sep l =
+  let add_when acc el =
+    if sep el then
+      [el] :: acc
+    else
+      (el :: List.hd acc) :: List.tl acc
+  in
+  List.fold_left add_when [[]] l
+  |> List.map List.rev
+
 let split_match p list =
   List.fold_while (fun _ el -> not @@ p el) (fun acc el -> el :: acc) [] list
   |> fun (first, second) -> (List.rev first, List.tl second)
