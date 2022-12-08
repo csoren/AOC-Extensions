@@ -72,4 +72,10 @@ let window n list =
   let init = List.take n list in
   init :: grade (fun l e -> List.append (List.tl l) [e]) init list
  
+let map_range start stop =
+  if start < stop then
+    List.range start `To stop
+  else
+    List.range start `Downto stop
+
   
