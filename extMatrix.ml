@@ -100,3 +100,17 @@ let sub_column_up (m: 'a t) x y n =
 
 let sub_column_top_edge (m: 'a t) x y =
   sub_column_up m x y (y + 1)
+
+let coords m =
+  let coli = List.range 0 `To (width m - 1) in
+  let rowi = List.range 0 `To (height m - 1) in
+  List.map (fun row -> List.map (fun col -> (col, row)) coli) rowi |> List.flatten
+
+let findi_opt f m =
+  coords m |> List.find_opt (fun (col, row) -> f col row m.(col).(row))
+
+let copy m =
+  Array.map Array.copy m
+
+let coord_valid x y m =
+  x >= 0 && x < width m && y >= 0 && y < height m 
