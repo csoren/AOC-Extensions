@@ -78,4 +78,6 @@ let map_range start stop =
   else
     List.range start `Downto stop
 
-  
+let head_opt = function
+  | [] -> None
+  | h :: _ -> Some h
