@@ -81,3 +81,11 @@ let map_range start stop =
 let head_opt = function
   | [] -> None
   | h :: _ -> Some h
+
+let min_opt cmp =
+  let fold_fn acc el =
+    match acc with
+    | Some n -> Some (if cmp n el < 0 then n else el)
+    | None -> Some el
+  in
+  List.fold fold_fn None
