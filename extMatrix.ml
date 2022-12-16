@@ -106,6 +106,14 @@ let coords m =
   let rowi = List.range 0 `To (height m - 1) in
   List.map (fun row -> List.map (fun col -> (col, row)) coli) rowi |> List.flatten
 
+let row_coords row m =
+  List.range 0 `To (width m - 1) |>
+  List.map (fun coli -> (coli, row))
+  
+let column_coords column m =
+  List.range 0 `To (height m - 1) |>
+  List.map (fun rowi -> (column, rowi))
+
 let findi_opt f m =
   coords m |> List.find_opt (fun (col, row) -> f col row m.(col).(row))
 
