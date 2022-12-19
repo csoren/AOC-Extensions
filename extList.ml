@@ -89,3 +89,12 @@ let min_opt cmp =
     | None -> Some el
   in
   List.fold fold_fn None
+
+let findi_opt f l =
+  let rec find' i = function
+    | [] -> None
+    | e :: _ when f e -> Some (i, e)
+    | _ :: tail -> find' (i + 1) tail
+  in
+  find' 0 l
+  

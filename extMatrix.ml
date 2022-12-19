@@ -101,10 +101,13 @@ let sub_column_up (m: 'a t) x y n =
 let sub_column_top_edge (m: 'a t) x y =
   sub_column_up m x y (y + 1)
 
-let coords m =
-  let coli = List.range 0 `To (width m - 1) in
-  let rowi = List.range 0 `To (height m - 1) in
+let sub_coords (m: 'a) (x_start, x_end) (y_start, y_end) =
+  let coli = List.range x_start `To x_end in
+  let rowi = List.range y_start `To y_end in
   List.map (fun row -> List.map (fun col -> (col, row)) coli) rowi |> List.flatten
+
+let coords m =
+  sub_coords m (0, width m - 1) (0, height m - 1)
 
 let row_coords row m =
   List.range 0 `To (width m - 1) |>
