@@ -98,3 +98,4 @@ let findi_opt f l =
   in
   find' 0 l
   
+let flat_map fn = List.map fn %> List.flatten
