@@ -6,3 +6,4 @@ module Option = ExtOption
 module Set = ExtSet
 module String = ExtString
 module Sys = ExtSys
+module Tuple2 = ExtTuple2

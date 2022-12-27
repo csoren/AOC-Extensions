@@ -9,4 +9,8 @@ let clamp n min max =
   if n < min then min
   else if n > max then max
   else n
-  
+
+let sign x =
+  if x = 0 then 0
+  else if x > 0 then 1
+  else -1
