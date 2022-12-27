@@ -90,6 +90,14 @@ let min_opt cmp =
   in
   List.fold fold_fn None
 
+let max_opt cmp =
+  let fold_fn acc el =
+    match acc with
+    | Some n -> Some (if cmp n el > 0 then n else el)
+    | None -> Some el
+  in
+  List.fold fold_fn None
+
 let findi_opt f l =
   let rec find' i = function
     | [] -> None

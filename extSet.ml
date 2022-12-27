@@ -4,5 +4,3 @@ include Set
 
 let size s =
   Set.to_array s |> Array.length
-
-let contains v = Set.exists ((=) v)
