@@ -107,3 +107,12 @@ let findi_opt f l =
   find' 0 l
   
 let flat_map fn = List.map fn %> List.flatten
+
+let flatten_opt l =
+  let flatten_opt' l = function
+    | Some v -> v :: l
+    | None -> l
+  in
+  List.fold flatten_opt' [] l |> List.rev
+
+let flat_map_opt fn = List.map fn %> flatten_opt
