@@ -3,6 +3,7 @@ module Int = ExtInt
 module List = ExtList
 module Matrix = ExtMatrix
 module Option = ExtOption
+module Seq = ExtSeq
 module Set = ExtSet
 module String = ExtString
 module Sys = ExtSys
