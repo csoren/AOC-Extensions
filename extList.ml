@@ -61,12 +61,18 @@ let window_quadruplets list =
   | _ -> []
   
 let window_triplets list =
-  grade (fun (_,b,c) d -> (b,c,d)) (0,0,0) list
-  |> drop 2
+  match list with
+  | a :: b :: c :: _ ->
+      let init = (a,b,c) in
+      init :: grade (fun (_,b,c) d -> (b,c,d)) init list
+  | _ -> []
     
 let window_tuplets list =
-  grade (fun (_,b) c -> (b,c)) (0,0) list
-  |> drop 1
+  match list with
+  | a :: b :: _ ->
+      let init = (a,b) in
+      init :: grade (fun (_,b) c -> (b,c)) init list
+  | _ -> []
 
 let window n list =
   let init = List.take n list in

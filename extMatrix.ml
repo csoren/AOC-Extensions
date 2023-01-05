@@ -5,6 +5,14 @@ type 'a t = 'a array array
 let make columns rows init =
   Array.make_matrix columns rows init
 
+let set m column row v =
+  let a = Array.get m column in
+  Array.set a row v
+
+let get m column row v =
+  let a = Array.get m column in
+  Array.get a row
+
 let is_empty = ExtArray.is_empty
 
 let width (m: 'a t) = Array.length m
