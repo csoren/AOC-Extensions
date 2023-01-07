@@ -9,7 +9,7 @@ let set m column row v =
   let a = Array.get m column in
   Array.set a row v
 
-let get m column row v =
+let get m column row =
   let a = Array.get m column in
   Array.get a row
 
