@@ -8,4 +8,5 @@ let sub = bin_op Int.sub
 
 let add = bin_op Int.add
 
-
+let to_string t1 t2 (f, s) =
+  Printf.sprintf "(%s,%s)" (t1 f) (t2 s) 
