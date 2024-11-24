@@ -1,5 +1,4 @@
 (library
  (name extensions)
- (public_name extensions)
  (libraries batteries)
 )
